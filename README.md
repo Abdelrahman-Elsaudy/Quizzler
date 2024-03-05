@@ -60,3 +60,24 @@ interface = Interface()
 ```
 
 ---
+
+## Fixed Bugs:
+
+- If the user presses on a button several times, the buttons is applied to several questions without them being shown to the user.
+- To fix this I disable the buttons once they are pressed and enable them again once the next question is shown.
+```
+    def right_click(self):
+        self.user_answer = "true"
+        self.right.config(state="disabled")
+        self.wrong.config(state="disabled")
+        self.give_feedback()
+```
+
+```
+    def display(self):
+        self.right.config(state="active")
+        self.wrong.config(state="active")
+```
+
+---
+_Credits to: 100-Days of Code Course on Udemy._
